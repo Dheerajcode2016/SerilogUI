@@ -2,12 +2,32 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
+	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+	<EnablePackageValidation>true</EnablePackageValidation>
+	<PackageId>Serilog.Aspnetcore.Configuration.UI</PackageId>
+	<Version>1.0.0</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>Serilog Configuration UI</Title>
     <Description>Provides a UI page to allow users to change Log Levels without modifying appsettings or restarting the Web API</Description>
+	<NeutralLanguage>en-IN</NeutralLanguage>
+	<RepositoryType>git</RepositoryType>
+	<Copyright>Copyright (c) Dheeraj 2020</Copyright>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<RepositoryUrl>https://github.com/Dheerajcode2016/opentelemetry-elk-exporter</RepositoryUrl>
+	<PackageTags>Seilog, UI,logger,logs,log,</PackageTags>
+	<PackageIcon>bb8.png</PackageIcon>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageReleaseNotes>Upgraded to .NET 6, Added retry logic to push message to Elasticsearch</PackageReleaseNotes>
   </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
   <ItemGroup>
     <None Remove="index.htm" />
   </ItemGroup>
@@ -17,7 +37,21 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
-
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include=".\bb8.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="bb8.svg">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
