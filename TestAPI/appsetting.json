@@ -1,0 +1,41 @@
+{
+  "Dheeraj": "",
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.console" ],
+    "MinimumLevel": {
+      "Default": "Fatal",
+      "Override": {
+        "Microsoft": "Information",
+        "Microsoft.Hosting.Lifetime": "Information",
+        "Microsoft.AspNetCore.Hosting.Diagnostics": "Warning",
+        "Microsoft.AspNetCore.StaticFiles": "Warning",
+        // The migration is not applied, so what?
+        "Microsoft.EntityFrameworkCore.Migrations": "Warning",
+        // DbCommand executed, so what?
+        "Microsoft.EntityFrameworkCore.Database": "Warning",
+        "Microsoft.AspNetCore.Mvc.Infrastructure": "Warning"
+      }
+    },
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithProcessId", "WithThreadId" ],
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "Logs\\RestApiLog.log",
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}",
+          "rollOnFileSizeLimit": true,
+          "fileSizeLimitBytes": 4194304,
+          "retainedFileCountLimit": 15,
+          "rollingInterval": "Minute"
+        }
+      },
+      {
+        "Name": "Console",
+        "Args": {
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"
+        }
+      }
+
+    ]
+  }
+}

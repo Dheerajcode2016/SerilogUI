@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+    <title>Serilog Configuration UI</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            color: white;
+            background-color: rgb(26, 20, 20);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        div {
+            display: block;
+            border: 1px solid grey;
+            padding: 5px 5px 5px 5px;
+            margin: 10px;
+        }
+
+        #description {
+            display: block;
+            margin: 5px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <label> Current Log Level: </label>{LogLevel}
+    <form action="/log/ui" method="post" id="form1">
+        <p>
+            <label for="LogLevelOptions"> Change to:</label>
+            <select name="LogLevelOptions" id="LogLevelOptions" form="form1" onchange="styleselect(this)">
+                <option value="0">Trace / Verbose</option>
+                <option value="1">Debug</option>
+                <option value="2">Information</option>
+                <option value="3">Warning</option>
+                <option value="4">Error</option>
+                <option value="5">Fatal / Critical</option>
+            </select>
+            <br />
+            <div>
+                <label>What you can expect:-  </label><br />
+                <div name="description" id="description"></div>
+            </div>
+            <div id="data" style="display:none">
+                {
+                "description": [
+                "Logs that contain the most detailed messages. These messages may contain sensitive application data. These messages are disabled by default and should never be enabled in a production environment",
+                "Logs that are used for interactive investigation during development. These logs should primarily contain information useful for debugging and have no long-term value.",
+                "Logs that track the general flow of the application. These logs should have long-term value.",
+                "Logs that highlight an abnormal or unexpected event in the application flow, but do not otherwise cause the application execution to stop.",
+                "Logs that highlight when the current flow of execution is stopped due to a failure. These should indicate a failure in the current activity, not an application - wide failure.",
+                "Logs that describe an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention."
+                ]
+                }
+            </div>
+            <button type="submit" form="form1" value="Submit">Set Log Level</button>
+        </p>
+    </form>
+    <script>
+        var logLevelDescription = JSON.parse(document.getElementById("data").innerText);
+        document.getElementById("description").innerHTML = logLevelDescription.description[0];
+        function styleselect(selectedItem) {
+            document.getElementById("description").innerHTML = logLevelDescription.description[selectedItem.value];
+        }
+    </script>
+</body>
+</html>
