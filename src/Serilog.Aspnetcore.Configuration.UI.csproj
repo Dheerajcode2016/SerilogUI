@@ -19,7 +19,7 @@
 	<PackageTags>Seilog, UI,logger,logs,log,</PackageTags>
 	<PackageIcon>bb8.png</PackageIcon>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
-	<PackageReleaseNotes>Upgraded to .NET 6, Added retry logic to push message to Elasticsearch</PackageReleaseNotes>
+	<PackageReleaseNotes>Created an UI to allow users to change serilog's log level with out restarting web api via html page</PackageReleaseNotes>
   </PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
