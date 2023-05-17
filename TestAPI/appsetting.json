@@ -5,15 +5,9 @@
     "MinimumLevel": {
       "Default": "Fatal",
       "Override": {
-        "Microsoft": "Information",
-        "Microsoft.Hosting.Lifetime": "Information",
-        "Microsoft.AspNetCore.Hosting.Diagnostics": "Warning",
-        "Microsoft.AspNetCore.StaticFiles": "Warning",
-        // The migration is not applied, so what?
-        "Microsoft.EntityFrameworkCore.Migrations": "Warning",
-        // DbCommand executed, so what?
-        "Microsoft.EntityFrameworkCore.Database": "Warning",
-        "Microsoft.AspNetCore.Mvc.Infrastructure": "Warning"
+        "System": "Error",
+        "Microsoft": "Error",
+        "Microsoft.*": "Error"
       }
     },
     "Enrich": [ "FromLogContext", "WithMachineName", "WithProcessId", "WithThreadId" ],

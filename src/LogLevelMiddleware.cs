@@ -21,17 +21,19 @@ namespace Serilog.Aspnetcore.Configuration.UI
       }
       else
       {
-        if (httpContext.Request.Method == HttpMethod.Get.ToString() &&
-           httpContext.Request.Path.HasValue &&
-           httpContext.Request.Path.Value.Contains("/log/UI", StringComparison.CurrentCultureIgnoreCase))
+        switch (httpContext.Request.Method)
         {
-          await LogUIHandler.GetLogUI(httpContext);
-        }
-        if (httpContext.Request.Method == HttpMethod.Post.ToString() &&
-           httpContext.Request.Path.HasValue &&
-           httpContext.Request.Path.Value.Contains("/log/UI", StringComparison.CurrentCultureIgnoreCase))
-        {
-          await LogUIHandler.PostUpdateLogLevel(httpContext);
+          case "GET":
+            await LogUIHandler.GetLogUI(httpContext);
+            break;
+
+          case "POST":
+            await LogUIHandler.PostUpdateLogLevel(httpContext);
+            break;
+
+          default:
+            await _next.Invoke(httpContext);
+            break;
         }
       }
     }
