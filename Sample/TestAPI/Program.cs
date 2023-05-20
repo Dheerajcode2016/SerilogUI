@@ -43,7 +43,7 @@ namespace TestAPI
         app.UseSwagger();
         app.UseSwaggerUI();
       }
-      app.UseSerlogConfigurationUI();
+      app.UseSerilogConfigurationUI();
       app.UseHttpsRedirection();
 
       app.UseAuthorization();

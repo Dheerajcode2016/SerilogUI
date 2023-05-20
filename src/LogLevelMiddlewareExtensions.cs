@@ -14,7 +14,7 @@ namespace Serilog.Aspnetcore.Configuration.UI
     /// </summary>
     /// <param name="builder"></param>
     /// <returns></returns>
-    public static IApplicationBuilder UseSerlogConfigurationUI(this IApplicationBuilder builder)
+    public static IApplicationBuilder UseSerilogConfigurationUI(this IApplicationBuilder builder)
     {
       return builder.UseMiddleware<LogLevelMiddleware>();
     }
