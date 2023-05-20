@@ -5,6 +5,9 @@
 	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	<EnablePackageValidation>true</EnablePackageValidation>
 	<PackageId>Serilog.Aspnetcore.Configuration.UI</PackageId>
+	<Authors>Dheeraj Kumar</Authors>
+	<Company>CalDro</Company>
+	<ProductName>Serilog Configuration UI for Log Level</ProductName>
 	<Version>1.0.0</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -19,7 +22,7 @@
 	<PackageTags>Seilog, UI,logger,logs,log,</PackageTags>
 	<PackageIcon>bb8.png</PackageIcon>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
-	<PackageReleaseNotes>Created an UI to allow users to change serilog's log level with out restarting web api via html page</PackageReleaseNotes>
+	<PackageReleaseNotes>Created an UI to allow users to change serilog's log level without restarting web api via html page</PackageReleaseNotes>
   </PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,10 +41,6 @@
     </EmbeddedResource>
   </ItemGroup>
 	<ItemGroup>
-		<None Include="..\..\README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
 		<None Include=".\bb8.png">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
