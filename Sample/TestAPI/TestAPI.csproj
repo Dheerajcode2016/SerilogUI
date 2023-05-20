@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Serilog.Aspnetcore.Configuration.UI.csproj" />
+    <ProjectReference Include="..\..\src\Serilog.Aspnetcore.Configuration.UI.csproj" />
   </ItemGroup>
 
 </Project>

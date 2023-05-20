@@ -27,7 +27,6 @@ namespace TestAPI
       {
         loggerConfiguration.ReadFrom.Configuration(config);
         loggerConfiguration.AddLogLevelManager(logLevelSwitch, config);
-        loggerConfiguration.MinimumLevel.ControlledBy(logLevelSwitch);
       });
 
       builder.Services.AddControllers();

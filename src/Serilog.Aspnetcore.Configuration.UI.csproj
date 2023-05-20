@@ -22,6 +22,7 @@
 	<PackageTags>Seilog, UI,logger,logs,log,</PackageTags>
 	<PackageIcon>bb8.png</PackageIcon>
 	<PackageReleaseNotes>Created an UI to allow users to change serilog's log level without restarting web api via html page</PackageReleaseNotes>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +33,23 @@
 	</PropertyGroup>
   <ItemGroup>
     <None Remove="index.htm" />
+    <None Remove="README.md" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Include="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include=".\bb8.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="index.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
