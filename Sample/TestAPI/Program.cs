@@ -26,6 +26,7 @@ namespace TestAPI
       builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
       {
         loggerConfiguration.ReadFrom.Configuration(config);
+        loggerConfiguration.AddLogLevelManager(logLevelSwitch, config);
         loggerConfiguration.MinimumLevel.ControlledBy(logLevelSwitch);
       });
 
@@ -33,8 +34,8 @@ namespace TestAPI
       // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
       builder.Services.AddEndpointsApiExplorer();
       builder.Services.AddSwaggerGen();
-      builder.Services.AddSingleton(typeof(LoggingLevelSwitch), logLevelSwitch);
-      builder.Services.AddSerlogConfigurationUI();
+
+      builder.Services.AddSerilogLogLevelConfigurationUI(logLevelSwitch);
       var app = builder.Build();
 
       // Configure the HTTP request pipeline.
@@ -43,14 +44,12 @@ namespace TestAPI
         app.UseSwagger();
         app.UseSwaggerUI();
       }
-
+      app.UseSerlogConfigurationUI();
       app.UseHttpsRedirection();
 
       app.UseAuthorization();
 
       app.MapControllers();
-
-      app.UseSerlogConfigurationUI();
 
       app.Run();
     }

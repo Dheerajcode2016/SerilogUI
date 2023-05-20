@@ -18,10 +18,9 @@
 	<Copyright>Copyright (c) Dheeraj 2020</Copyright>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-	<RepositoryUrl>https://github.com/Dheerajcode2016/opentelemetry-elk-exporter</RepositoryUrl>
+	<RepositoryUrl>https://github.com/Dheerajcode2016/SerilogUI</RepositoryUrl>
 	<PackageTags>Seilog, UI,logger,logs,log,</PackageTags>
 	<PackageIcon>bb8.png</PackageIcon>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageReleaseNotes>Created an UI to allow users to change serilog's log level without restarting web api via html page</PackageReleaseNotes>
   </PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
@@ -53,6 +52,7 @@
 	</ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Serilog" Version="2.12.0" />
   </ItemGroup>

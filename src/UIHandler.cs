@@ -28,11 +28,12 @@ namespace Serilog.Aspnetcore.Configuration.UI
       htmlContent = htmlContent.Replace("{LogLevel}", LogLevelSwitch.MinimumLevel.ToString());
       if (!string.IsNullOrWhiteSpace(htmlContent))
       {
+        response.ContentType = "text/html";
         using (var buffer = new MemoryStream(Encoding.UTF8.GetBytes(htmlContent)))
         {
           buffer.Position = 0;
           await buffer?.CopyToAsync(response.Body);
-          response.ContentType = "text/html";
+          
         }
       }
       return response;
