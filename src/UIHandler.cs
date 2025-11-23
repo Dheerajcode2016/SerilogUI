@@ -33,7 +33,6 @@ namespace Serilog.Aspnetcore.Configuration.UI
         {
           buffer.Position = 0;
           await buffer?.CopyToAsync(response.Body);
-          
         }
       }
       return response;

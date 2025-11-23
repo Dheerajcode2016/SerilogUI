@@ -1,6 +1,6 @@
 using Serilog;
-using Serilog.Aspnetcore.Configuration.UI;
 using Serilog.Core;
+using Serilog.Aspnetcore.Configuration.UI;
 
 namespace TestAPI
 {

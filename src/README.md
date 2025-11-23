@@ -2,7 +2,7 @@
 A UI provider for serilog to allow users to change log levels without changing appsettings.json or restarting the application.
 
 ## Steps   
-1. Install **Serilog.Aspnetcore.Configuration.UI** Package in .NET 7 Web API
+1. Install **Serilog.Aspnetcore.Configuration.UI** Package in .NET 9 Web API
 2. Add below code 
 ```Csharp
     var logLevelSwitch = new LoggingLevelSwitch();

@@ -20,7 +20,7 @@ A UI provider for serilog to allow users to change log levels without changing a
 ```
 4. Add Below code to configure Middleware in pipeline.
 ```Csharp
-    app.UseSerlogConfigurationUI();
+    app.UseSerilogConfigurationUI();
 ```
   
 ## Samples
